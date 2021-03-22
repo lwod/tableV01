@@ -6,4 +6,4 @@ app.get("/", function (req,res){
 	res.send("some str");
 })
 
-app.listen(port)
+app.listen(process.env.PORT || 5000)

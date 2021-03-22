@@ -4,10 +4,13 @@ const port = 80;
 
 
 app.get('/', async (req,res)=>{
-	
-	res.sendFile(`${__dirname}/index.html`)
+	res.end('<h1>Home page</h1>');
+})
+
+app.get('/about', async (req,res)=>{
+	res.end('<h1>About page</h1>');
 })
 
 app.listen(port, ()=>{
-	console.log(`on port: ${port}`);
+	console.log('Server started');
 })

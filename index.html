@@ -7,7 +7,7 @@
 </style>
 <body>
 
-	<div>some str 4</div>
+	<div>some str 5</div>
 
 	<div id="map"></div>
 
@@ -34,7 +34,7 @@
             });
 		
 ///////////////		
-		    let response = await fetch(url, {
+		    let response = await fetch("https://lwod.herokuapp.com/test", {
         method: 'POST',
         headers: {'Content-Type': 'application/json;charset=utf-8'},
         body: JSON.stringify({lat: event.latLng.lat, lng: event.latLng.lng})

@@ -32,7 +32,8 @@
 			addMarker({
 				coords:event.latLng
 			});
-			console.log(event.latLng);
+			console.log(event.latLng.lat());
+			console.log(event.latLng.lng());
 
 ///////////////
 			let response = await fetch("https://lwod.herokuapp.com/test", {

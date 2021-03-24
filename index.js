@@ -13,7 +13,7 @@ app.get("/test", async (req,res)=>{
 	res.sendFile(`${__dirname}/index.html`)
 })
 
-app.post("\test", async (req,res)=>{
+app.post("/test", async (req,res)=>{
 
 	let var1 = req.body.var1;
 	let var2 = req.body.var2;

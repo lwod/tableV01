@@ -42,6 +42,10 @@ app.post("/test", async (req,res)=>{
 
 });
 
+app.post("/testcor", async (req,res)=>{
+	res.json(coordArr[0]);	
+})
+
 app.listen(process.env.PORT || 5000, ()=>{
 	console.log(`\tstratet on port: ${port}`)
 })

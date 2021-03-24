@@ -1,3 +1,23 @@
 <body>
   some other str
+  <input id="var1"/>
+  <input id="var2"/>
+  <button id="btn">send</button>
+
+  <script>
+  document.getElementById('btn').addEventListener('click', function(){
+  fetch('https://lwod.herokuapp.com/test', {
+  method: 'post',
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({var1: "--var1", var2: "var2"})
+}).then(res => res.json())
+  .then(res => console.log(res));
+  
+  });
+  </script>
 </body>
+
+

@@ -6,8 +6,10 @@
 
 </style>
 <body>
-	<div>some str</div>
-<div id="map"></div>
+
+	<div>some str 2</div>
+
+	<div id="map"></div>
 
 <div id="title"></div>
 
@@ -28,6 +30,8 @@
             addMarker({
                 coords:event.latLng
             });
+		
+		console.log('-- some str --');
         });
 		
 		let map = new google.maps.Map(document.getElementById('map'),options);

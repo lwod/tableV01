@@ -24,18 +24,19 @@
 				lng : -71.05
 			}
 		}
+		
+		let map = new google.maps.Map(document.getElementById('map'),options);
 
 		
-        google.maps.event.addListener(map, 'click', function (event){
+		        google.maps.event.addListener(map, 'click', function (event){
             addMarker({
                 coords:event.latLng
             });
 		
 		console.log('-- some str --');
         });
-		
-		let map = new google.maps.Map(document.getElementById('map'),options);
 
+		
 	        function addMarker (props){
 			let marker = new google.maps.Marker({
                 position: props.coords,

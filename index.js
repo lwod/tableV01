@@ -31,7 +31,15 @@ app.post("/test", async (req,res)=>{
 	coordArr[0].lng = lng;
 	
 	console.log(coordArr[0]);
-	
+
+		        let status = {lat : lat, lng : lng}
+
+        status.lat = lat;
+        status.lng = lng;
+        status.response = 'update';
+
+        res.json(status);
+
 });
 
 app.listen(process.env.PORT || 5000, ()=>{

@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const port = 5000
 
+const coordAr = [
+	{lat:0,lng:0},
+]
+
 app.use(express.json({extended:true}));
 
 app.get("/", function (req,res){
@@ -15,10 +19,15 @@ app.get("/test", async (req,res)=>{
 
 app.post("/test", async (req,res)=>{
 
-	let var1 = req.body.var1;
-	let var2 = req.body.var2;
+	let lat = req.body.lat;
+	let lng = req.body.lng;
 	
-	console.log(`var1: ${var1} and var2: ${var2}`);
+// 	console.log(`var1: ${var1} and var2: ${var2}`);
+	coordArr[0].lat = lat;
+	coordArr[0].lng = lng;
+	
+	console.log(coordArr[0]);
+	
 });
 
 app.listen(process.env.PORT || 5000, ()=>{

@@ -6,7 +6,7 @@ const cors = require('cors')
 app.use(cors())
 
 
-const coordAr = [
+const coordArr = [
 	{lat:0,lng:0},
 ]
 

@@ -7,8 +7,6 @@
 </style>
 <body>
 
-<div>some str 8</div>
-
 <div id="map"></div>
 
 <div id="title"></div>
@@ -18,36 +16,91 @@
 
 
 		const options = {
-			zoom : 8,
+			zoom : 15,
 			center: {
-				lat : 42.35,
-				lng : -71.05
+				lat : 41.5982514,
+				lng : -87.336515
 			}
 		}
 
 		let map = new google.maps.Map(document.getElementById('map'),options);
 		// https://simg.nicepng.com/png/small/440-4409287_heres-a-little-more-info-about-what-makes.png
 
+
+		// let modeus = new google.maps.Marker({
+		// 	//position: {lat:41.5991821, lng:'41.5991821'},
+		// 	//map:map,
+		// 	icon : 'https://raw.githubusercontent.com/lwod/tableV01/main/modeus.png',
+		// 	content : '<h3>Князь города</h3>'
+		// })
+		// modeus.setPosition(new google.maps.LatLng(41.5991821,-87.3328457));
+
+		let modeus = new google.maps.Marker({
+			map:map,
+			icon : 'https://raw.githubusercontent.com/lwod/tableV01/main/modeus.png',
+		})
+		modeus.setPosition(new google.maps.LatLng(41.5991821,-87.3328457));
+		const infoModeus = new google.maps.InfoWindow({
+            content: '<div>Modeus</div><div>The lord of Gery</div>'
+        })
+		modeus.addListener('click', function (){
+			infoModeus.open(map, modeus)
+        })
+
+
+
+		let jongler = new google.maps.Marker({
+			map:map,
+			icon : 'https://raw.githubusercontent.com/lwod/tableV01/main/jongler.png',
+		})
+		jongler.setPosition(new google.maps.LatLng(41.602326520726415,-87.34361529350281));
+		const infoJongler = new google.maps.InfoWindow({
+			content: '<div>Jongler</div><div>Another toreador</div>'
+		})
+		jongler.addListener('click', function (){
+			infoJongler.open(map, jongler)
+		})
+
+
+		let ceroline = new google.maps.Marker({
+			map:map,
+			icon : 'https://raw.githubusercontent.com/lwod/tableV01/main/ceroline.png',
+		})
+		ceroline.setPosition(new google.maps.LatLng(41.60066294542978,-87.33857699777955));
+		const infoCeroline = new google.maps.InfoWindow({
+			content: '<div>Marsh/Toreador</div><div>Blood: 10, Wits: 0</div>'
+		})
+		ceroline.addListener('click', function (){
+			infoCeroline.open(map, ceroline)
+		})
+
+
+
 		google.maps.event.addListener(map, 'click', async function (event){
-			addMarker({
-				coords:event.latLng
-			});
+
+			// ceroline.setMap(null)
+			ceroline.setPosition(new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()));
+
+			// addMarker({
+			// 	coords:event.latLng
+			// });
+			// console.log(event.latLng)
 			console.log(event.latLng.lat());
 			console.log(event.latLng.lng());
 
 ///////////////
-			let response = await fetch("https://lwod.herokuapp.com/test", {
-				method: 'POST',
-				headers: {'Content-Type': 'application/json;charset=utf-8'},
-				body: JSON.stringify({lat: event.latLng.lat(), lng: event.latLng.lng()})
-			});
+// 			let response = await fetch("https://lwod.herokuapp.com/test", {
+// 				method: 'POST',
+// 				headers: {'Content-Type': 'application/json;charset=utf-8'},
+// 				body: JSON.stringify({lat: event.latLng.lat(), lng: event.latLng.lng()})
+// 			});
 
 
 //     const result = await response.json();
 
 // 		console.log(result);
 			/////////////////////////////
-			console.log('-- --');
+			// console.log('-- --');
 		});
 
 
@@ -55,6 +108,7 @@
 			let marker = new google.maps.Marker({
 				position: props.coords,
 				map:map,
+                icon : 'https://raw.githubusercontent.com/lwod/tableV01/main/ceroline.png'
 			})
 		}
 
